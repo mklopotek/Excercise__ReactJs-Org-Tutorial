@@ -1,0 +1,22 @@
+.square {
+background: #fff;
+border: 1.5px solid rgb(41, 29, 109);
+float: left;
+font-size: 24px;
+font-weight: bold;
+margin-right: -1px;
+margin-left: -1px;
+margin-top: -1px;
+margin-bottom: -1px;
+text-align: center;
+width: 40px;
+height: 40px;
+}
+
+.square:focus {
+    outline: none;
+}
+
+.square:focus {
+    background: #ddd;
+  }

@@ -1,0 +1,11 @@
+.board-row:after {
+    clear: both;
+    content: "";
+    display: table;
+  }
+
+.board {
+    position: absolute;
+    left: 200px;
+    top: 200px;
+}
