@@ -3,23 +3,30 @@ import Square from './Square'
 import './board.css'
 
 class Board extends React.Component {
+    renderSquare = (number) => 
+        <Square
+            value={this.props.value}
+            handleClick={this.handleClick}
+        /> 
+
+
     render() {
         'Next player:'
 
-        return(
+        return (
             <div className='board'>
                 <div className="board-row"></div>
-                <Square value={0}/>
-                <Square value={1}/>
-                <Square value={2}/>
+                {this.renderSquare(0)}
+                {this.renderSquare(1)}
+                {this.renderSquare(2)}
                 <div className="board-row"></div>
-                <Square value={3}/>
-                <Square value={4}/>
-                <Square value={5}/>
+                {this.renderSquare(3)}
+                {this.renderSquare(4)}
+                {this.renderSquare(5)}
                 <div className="board-row"></div>
-                <Square value={6}/>
-                <Square value={7}/>
-                <Square value={8}/>
+                {this.renderSquare(6)}
+                {this.renderSquare(7)}
+                {this.renderSquare(8)}
             </div>
         )
     }
