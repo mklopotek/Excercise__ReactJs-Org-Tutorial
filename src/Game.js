@@ -16,13 +16,19 @@ class Game extends React.Component {
     }
   }
 
-  handleClick = (index) => {
+  handleClick = (index)=> {
+    console.log(index)
+    const newArray = this.state.history[0].allSquares.map((e, i) => i === index? this.state.nextPlayer : e )
 
+    console.log(newArray)
     const newAllSquares = {
-      allSquares: this.state.history[0].allSquares.map((e, i) => i === index? e = this.nextPlayer : e )
+      allSquares: newArray
     }
     
-      return this.setState({ history: {newAllSquares}})
+    this.setState({ 
+      history: [newAllSquares],
+      nextPlayer: this.state.nextPlayer === 'X'? 'O' : 'X'
+    })
   }
 
 
