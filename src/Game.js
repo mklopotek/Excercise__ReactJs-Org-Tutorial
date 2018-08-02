@@ -18,7 +18,18 @@ class Game extends React.Component {
 
   handleClick = (index)=> {
     console.log(index)
-    const newArray = this.state.history[0].allSquares.map((e, i) => i === index? this.state.nextPlayer : e )
+    const allSquares = this.state.history[0].allSquares
+    const nextPlayer = this.state.nextPlayer
+    const newArray = allSquares
+      .map((e, i) => 
+        i === index ? 
+          e !== 'X' && '0'? 
+            nextPlayer 
+              :
+              e
+          : 
+          e 
+        )
 
     console.log(newArray)
     const newAllSquares = {
@@ -27,7 +38,7 @@ class Game extends React.Component {
     
     this.setState({ 
       history: [newAllSquares],
-      nextPlayer: this.state.nextPlayer === 'X'? 'O' : 'X'
+      nextPlayer: nextPlayer === 'X'? '0' : 'X'
     })
   }
 
