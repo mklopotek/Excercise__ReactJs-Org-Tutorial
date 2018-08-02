@@ -2,42 +2,37 @@ import React from 'react';
 import Board from './Board'
 
 class Game extends React.Component {
-  constructor(props) {
-    super(props)
-    state = {
+  constructor() {
+    super()
+    this.state = {
       history: [
         {
-          allSquares: ['null', 'null', 'null',
-            'null', 'null', 'null',
-            'null', 'null', 'null']
+          allSquares: [null, null, null,
+            null, null, null,
+            null, null, null,]
         }
       ],
-
       nextPlayer: 'X'
     }
   }
 
-//   handleClick = (i) => {
-//  const newSquares = [] 
+  handleClick = (index) => {
 
-//   this.setState({
-//     history: this.state.history.slice().concat([
-//     {
-//       allSquares: newSquares
-//     }
-//   ]),
-//   nextPlayer: this.state.nextPlayer === 'X'? '0' : 'X'
+    const newAllSquares = {
+      allSquares: this.state.history[0].allSquares.map((e, i) => i === index? e = this.nextPlayer : e )
+    }
+    
+      return this.setState({ history: {newAllSquares}})
+  }
 
-// })
-// }
 
   render() {
     return (
       <div>
         <div className="next__player"><strong>Next Player: {this.state.nextPlayer}</strong></div>
         <Board
-          // oneSquares={this.state.history.allSquares}
-          // handleClick={this.handleClick(i)}
+          onClick={this.handleClick}
+          allSquares={this.state.history[0].allSquares}
         />
       </div>
     )
