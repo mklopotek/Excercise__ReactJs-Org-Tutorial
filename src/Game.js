@@ -15,6 +15,11 @@ class Game extends React.Component {
 
   handleClick = (index) => {
     const allSquares = this.state.allSquares.slice()
+
+    if (this.calculateWinner(allSquares) || allSquares[index]) {
+      return
+    }
+
     allSquares[index] = this.state.isXIsNextPlayer ? 'X' : 'O'
 
     this.setState({
@@ -35,6 +40,7 @@ class Game extends React.Component {
       [0, 4, 8],
       [2, 4, 6],
     ];
+    
     for (let i = 0; i < lines.length; i++) {
       const [a, b, c] = lines[i];
       if (allSquares[a] && allSquares[a] === allSquares[b] && allSquares[a] === allSquares[c]) {
@@ -48,7 +54,7 @@ class Game extends React.Component {
     const winner = this.calculateWinner(this.state.allSquares)
     let status
 
-    if(winner){status = 'Winner: ' + winner 
+    if(winner){status = 'The winner is: ' + winner 
   } else {
       status = 'Next player: ' + (this.state.isXIsNextPlayer ? 'X' : 'O')
     }
