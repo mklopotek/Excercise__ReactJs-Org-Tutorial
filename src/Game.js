@@ -5,51 +5,32 @@ class Game extends React.Component {
   constructor() {
     super()
     this.state = {
-      history: [
-        {
-          allSquares: [null, null, null,
+      allSquares: [null, null, null,
             null, null, null,
-            null, null, null,]
-        }
-      ],
-      nextPlayer: 'X'
+            null, null, null,],
+      isXIsNextPlayer: true,
     }
   }
 
   handleClick = (index)=> {
-    console.log(index)
-    const allSquares = this.state.history[0].allSquares
-    const nextPlayer = this.state.nextPlayer
-    const newArray = allSquares
-      .map((e, i) => 
-        i === index ? 
-          e !== 'X' && '0'? 
-            nextPlayer 
-              :
-              e
-          : 
-          e 
-        )
+    const allSquares = this.state.allSquares.slice()
+    allSquares[index] = this.state.isXIsNextPlayer ? 'X' : 'O'
 
-    console.log(newArray)
-    const newAllSquares = {
-      allSquares: newArray
-    }
-    
-    this.setState({ 
-      history: [newAllSquares],
-      nextPlayer: nextPlayer === 'X'? '0' : 'X'
-    })
+      this.setState({
+        allSquares: allSquares,
+        isXIsNextPlayer: !this.state.isXIsNextPlayer,
+      })
+
   }
 
 
   render() {
     return (
       <div>
-        <div className="next__player"><strong>Next Player: {this.state.nextPlayer}</strong></div>
+        <div className="next__player"><strong>Next Player: {this.state.isXIsNextPlayer ? 'X' : 'O'}</strong></div>
         <Board
           onClick={this.handleClick}
-          allSquares={this.state.history[0].allSquares}
+          allSquares={this.state.allSquares}
         />
       </div>
     )
