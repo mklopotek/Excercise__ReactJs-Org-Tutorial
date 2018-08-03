@@ -10,7 +10,7 @@ const Board = ({onClick, allSquares}) => {
     />)
 
         return (
-            <div className='game__board'>
+            <div>
                 <div className="game__board--row">
                 {renderSquare(0)}
                 {renderSquare(1)}

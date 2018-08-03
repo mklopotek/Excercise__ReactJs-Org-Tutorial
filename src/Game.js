@@ -6,15 +6,21 @@ class Game extends React.Component {
   constructor() {
     super()
     this.state = {
-      allSquares: [null, null, null,
-        null, null, null,
-        null, null, null,],
+      history: [
+        {
+          allSquares: [null, null, null,
+                      null, null, null,
+                      null, null, null]
+        }
+      ],
       isXIsNextPlayer: true,
     }
   }
 
   handleClick = (index) => {
-    const allSquares = this.state.allSquares.slice()
+    const historySquares =this.state.history
+    const currentSquares =historySquares[historySquares.length - 1]
+    const allSquares = currentSquares.allSquares.slice()
 
     if (this.calculateWinner(allSquares) || allSquares[index]) {
       return
@@ -23,7 +29,7 @@ class Game extends React.Component {
     allSquares[index] = this.state.isXIsNextPlayer ? 'X' : 'O'
 
     this.setState({
-      allSquares: allSquares,
+      history: historySquares.concat([{allSquares: allSquares}]),
       isXIsNextPlayer: !this.state.isXIsNextPlayer,
     })
 
@@ -51,7 +57,10 @@ class Game extends React.Component {
   }
 
   render() {
-    const winner = this.calculateWinner(this.state.allSquares)
+    const historySquares =this.state.history
+    const currentSquares =historySquares[historySquares.length - 1]
+    
+    const winner = this.calculateWinner(currentSquares.allSquares)
     let status
 
     if (winner) {
@@ -73,13 +82,15 @@ class Game extends React.Component {
             {status}
           </strong>
         </div>
-
+        <div className="game__board">
         <Board
           onClick={this.handleClick}
-          allSquares={this.state.allSquares}
+          allSquares={currentSquares.allSquares}
         />
+        </div>
 
         <div className='game__info'></div>
+        <ol></ol>
 
       </div>
     )
