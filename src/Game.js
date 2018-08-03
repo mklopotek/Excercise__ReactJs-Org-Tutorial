@@ -40,7 +40,7 @@ class Game extends React.Component {
       [0, 4, 8],
       [2, 4, 6],
     ];
-    
+
     for (let i = 0; i < lines.length; i++) {
       const [a, b, c] = lines[i];
       if (allSquares[a] && allSquares[a] === allSquares[b] && allSquares[a] === allSquares[c]) {
@@ -54,15 +54,16 @@ class Game extends React.Component {
     const winner = this.calculateWinner(this.state.allSquares)
     let status
 
-    if(winner){status = <div className='status__winner'>The winner is: {winner}</div>
-  } else {
-      status = <div className='status__nextPlayer'>Next player: {this.state.isXIsNextPlayer ? 'X' : 'O'} </div>
+    if (winner) {
+      status = <div className='game__status--winner'>The winner is: {winner}</div>
+    } else {
+      status = <div className='game__status--nextPlayer'>Next player: {this.state.isXIsNextPlayer ? 'X' : 'O'} </div>
     }
 
     return (
-      <div>
+      <div className='game'>
 
-        <div className="status">
+        <div className="game__status">
           <strong>
             {/* <CalculateWinner
               allSquares={this.state.allSquares}
@@ -77,6 +78,8 @@ class Game extends React.Component {
           onClick={this.handleClick}
           allSquares={this.state.allSquares}
         />
+
+        <div className='game__info'></div>
 
       </div>
     )

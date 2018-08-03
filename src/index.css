@@ -3,16 +3,16 @@ body {
   font-family: sans-serif;
 }
 
-.status {
+.game__status {
   position: absolute;
   left: 200px;
   top: 150px;
 }
 
-.status__nextPlayer{
+.game__status--nextPlayer{
 color: rgb(1, 98, 128);
 }
 
-.status__winner{
+.game__status--winner{
   color: rgb(19, 179, 14);
 }

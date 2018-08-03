@@ -1,10 +1,10 @@
-.board-row:after {
+.game__board--row:after {
     clear: both;
     content: "";
     display: table;
   }
 
-.board {
+.game__board {
     position: absolute;
     left: 200px;
     top: 200px;

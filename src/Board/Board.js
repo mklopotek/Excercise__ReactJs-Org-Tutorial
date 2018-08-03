@@ -10,19 +10,22 @@ const Board = ({onClick, allSquares}) => {
     />)
 
         return (
-            <div className='board'>
-                <div className="board-row"></div>
+            <div className='game__board'>
+                <div className="game__board--row">
                 {renderSquare(0)}
                 {renderSquare(1)}
                 {renderSquare(2)}
-                <div className="board-row"></div>
+                </div>
+                <div className="game__board--row">
                 {renderSquare(3)}
                 {renderSquare(4)}
                 {renderSquare(5)}
-                <div className="board-row"></div>
+                </div>
+                <div className="game__board--row">
                 {renderSquare(6)}
                 {renderSquare(7)}
                 {renderSquare(8)}
+                </div>
             </div>
         )
 }
