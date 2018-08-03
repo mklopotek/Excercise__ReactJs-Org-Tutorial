@@ -2,3 +2,17 @@ body {
   margin: 20px;
   font-family: sans-serif;
 }
+
+.status {
+  position: absolute;
+  left: 200px;
+  top: 150px;
+}
+
+.status__nextPlayer{
+color: rgb(1, 98, 128);
+}
+
+.status__winner{
+  color: rgb(19, 179, 14);
+}

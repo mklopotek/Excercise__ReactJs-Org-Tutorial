@@ -1,6 +1,6 @@
 import React from 'react';
 import Board from './Board'
-import CalculateWinner from './CalculateWinner'
+// import CalculateWinner from './CalculateWinner'
 
 class Game extends React.Component {
   constructor() {
@@ -54,9 +54,9 @@ class Game extends React.Component {
     const winner = this.calculateWinner(this.state.allSquares)
     let status
 
-    if(winner){status = 'The winner is: ' + winner 
+    if(winner){status = <div className='status__winner'>The winner is: {winner}</div>
   } else {
-      status = 'Next player: ' + (this.state.isXIsNextPlayer ? 'X' : 'O')
+      status = <div className='status__nextPlayer'>Next player: {this.state.isXIsNextPlayer ? 'X' : 'O'} </div>
     }
 
     return (
