@@ -1,4 +1,4 @@
-It's my first small game created by react
+It's my first small game created using react
 ====================================
 I was following the react tutorial from: https://reactjs.org/tutorial/tutorial.html
 -------------------------------------
